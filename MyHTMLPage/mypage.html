@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="mystyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>A Minha Página</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">Sobre mim</a></li>
+            <li><a href="#academy">Formação académica</a></li>
+            <li><a href="#skills">Competências</a></li>
+            <li><a href="#work">Experiência profissional</a></li>
+            <li><a href="#activities">Atividades complementares</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container" id="about">
+        <div class="image">
+          <img src="./img/foto.jpg" class="photo">
+        </div>
+        <div class="text">
+          <h2>Perfil Pessoal</h2>
+          <p>22 anos | Póvoa de Varzim</p>
+          <p>Licenciada em Engenharia Biomédica pelo Instituto Superior de Engenharia do Porto e atualmente estudante do Mestrado em Engenharia Biomédica - Especialização em Informática Médica - na Universidade do Minho.</p>
+          <p>Entusiasmada em relação ao futuro e com desejo de contribuir para o avanço tecnológico, principalmente nas áreas da Saúde e da Engenharia.</p>
+          <p><b>Principais características pessoais:</b> determinação, empenho, eficácia e eficiência, liderança, entreajuda, trabalho de equipa.</p>
+          <br>
+          <p><b><i class="fa fa-linkedin-square"></i></b><i> /in/analuisasa</i></p>
+          <p><b><span>&#9993;</span></b><i> luisa_sa00@hotmail.com</i></p>
+        </div>
+    </div>
+
+    <div class="container" id="academy">
+        <div class="text">
+          <h2>Formação Académica</h2>
+          <ul>
+            <li><h4>Licenciatura em Engenharia Biomédica</h4>
+                <p>2018 - 2021: Instituto Superior de Engenharia do Porto (ISEP)</p>
+                <ul>
+                    <li>Média final de 15,0 valores</li>
+                </ul>
+            </li> 
+            <li><h4>Mestrado em Engenharia Biomédica - Especialização em Informática Médica</h4>
+                <p>2022 - Presente: Universidade do Minho</p></li></li>
+          </ul>
+        </div>
+        <div class="image" class="academy">
+            <img src="./img/academ_icon.jpg" onmouseover="hover(this)" onmouseout="hoverOut(this);"/>
+          </div>
+    </div>
+
+    <div class="container" id="skills" style="justify-content: space-between;">
+        <div>
+            <h2>Competências Tecnológicas</h2>
+            <p>Python, HTML, SQL</p>
+            <div class="skill_container">
+                <div class="skill html">80%</div>
+            </div>
+            <p>PHP, R, C</p>
+            <div class="skill_container">
+                <div class="skill php">70%</div>
+            </div>
+            <p>Java, Solidworks, Excel</p>
+            <div class="skill_container">
+                <div class="skill java">60%</div>
+            </div>
+        </div>
+        
+        <div>
+            <h2>Competências Linguísticas</h2>
+            <p><b>Português</b>: Nativa</p>
+            <p><b>Inglês: </b>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot"></span></p>
+            <p><b>Espanhol: </b>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot" style="background-color:chocolate"></span>
+            <span class="dot"></span>
+            <span class="dot"></span></p>
+        </div>
+    </div>
+
+    <div class="container" id="work">
+        <div class="image">
+            <img src="./img/work.png">
+          </div>
+        <div class="text">
+          <h2>Experiência Profissional</h2>
+          <ul>
+            <li><h4>Mai 2022 - Ago 2022: Trabalho em regime parttime 30 horas</h4>
+                <p><u>Vendedora de loja na Armani</u> - Vila do Conde Porto Fashion Outlet</p>
+            </li> 
+            <li><h4>Set 2021 - Mar 2022: Trabalho em regime part-time fim de semana</h4>
+                <p><u>Empregada de mesa/balcão na Pastelaria Casa do Cacau</u></p>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="container" id="activities">
+        <div class="text">
+          <h2>Atividades complementares</h2>
+          <ul>
+            <li><h4>2014 - 2021: Desporto Federado</h4>
+                <p>Voleibol no Clube Desportivo da Póvoa</p>
+            </li> 
+            <li><h4>2015 - 2019: Voluntariado</h4>
+                <p>BISFed - Competições Europeias e Mundiais de Boccia realizadas em Portugal</p>
+            </li>
+            <li><h4> 2012 - 2014: Aulas de Música</h4>
+                <p>BISFed - Competições Europeias e Mundiais de Boccia realizadas em Portugal</p>
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+            <img src="./img/volei.png">
+        </div>
+    </div>
+
+    
+    <script>
+        function hover(img)
+        {
+        img.src = "./img/logos.png"
+        }
+
+        function hoverOut(img){
+        img.src = "./img/academ_icon.jpg"
+        }
+    </script>
+
+
+</body>
+</html>
