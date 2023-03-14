@@ -1,0 +1,96 @@
+body {
+    font-family: Verdana, sans-serif;
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+}
+
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  img.photo {
+    width: 20em;
+    aspect-ratio: 1;
+    border-radius: 100%;
+  }
+
+  img {
+    width: 18em;
+    align-self: center;
+  }
+
+  div.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 4em;
+    padding-top: 4em;
+    align-items: center;
+    border-bottom: 2px solid black;
+  }
+
+  .container > .text {
+    width: 60%;
+  }
+
+  .dot {
+    height: 20px;
+    width: 20px;
+    background-color:azure;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+
+  .skill_container {
+    background-color: azure;
+    width: 100%;
+    border-radius: 15px;
+}
+
+  .skill {
+    background-color: chocolate;
+    color: white;
+    padding: 1%;
+    text-align: right;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+.html {
+  width: 80%;
+}
+
+.php {
+  width: 70%;
+}
+
+.java {
+  width: 60%;
+}
