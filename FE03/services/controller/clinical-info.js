@@ -1,6 +1,6 @@
 let ClinicalInfoSchema = require('../model/clinical-info');
 
-module.exports.newSensor = async (id, admdate, bed, bodytemp, systolic, diastolic, bpm, stato2, timestamp) => {
+module.exports.newSensor = async (id, admdate, bed, bodytemp, systolic, diastolic, bpm, sato2, timestamp) => {
     try {
         let blood_pressure_object = new BloodPressureSchema ({ systolic: systolic, diastolic: diastolic })
         let clinical_info = new ClinicalInfoSchema ({ 
@@ -10,7 +10,7 @@ module.exports.newSensor = async (id, admdate, bed, bodytemp, systolic, diastoli
             bodyTemp: bodytemp, 
             bloodPres: blood_pressure_object, 
             bpm: bpm, 
-            stato2: stato2, 
+            sato2: sato2, 
             timestamp: timestamp });
         let response = await clinical_info.save();
         return { success: true, response };
