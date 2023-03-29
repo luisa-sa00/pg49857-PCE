@@ -5,7 +5,7 @@ var PatientSchema = new Schema({
     patientID: {type: Number, unique: true},
     patientName: {type: String},
     patientBirthdate: {type: Date},
-    patientAge: {type: Numebr}
+    patientAge: {type: Number}
 })
 
-module.exports = mongoose.model('sensor', PatientSchema)
+module.exports = mongoose.model('patient', PatientSchema)

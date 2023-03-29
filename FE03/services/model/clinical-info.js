@@ -13,8 +13,8 @@ var ClinicalInfoSchema = new Schema({
     bodyTemp: {type: Number},
     bloodPress: BloodPressSchema,
     bpm: {type: Number},
-    stato2: {type: Number},
+    sato2: {type: Number},
     timestamp: {type: Date}
 })
 
-module.exports = mongoose.model('sensor', ClinicalInfoSchema)
+module.exports = mongoose.model('clinical-info', ClinicalInfoSchema)

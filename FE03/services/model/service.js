@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ServiceSchema = new Schema({
-    serviceID: {type: Number, unique: true},
+    serviceID: {type: String, unique: true},
     serviceDesc: {type: String}
 })
 
-module.exports = mongoose.model('sensor', ServiceSchema)
+module.exports = mongoose.model('service', ServiceSchema)

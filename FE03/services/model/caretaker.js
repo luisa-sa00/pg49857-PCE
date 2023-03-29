@@ -6,4 +6,4 @@ var CareTakerSchema = new Schema({
     name: {type: String}
 })
 
-module.exports = mongoose.model('sensor', CareTakerSchema)
+module.exports = mongoose.model('caretaker', CareTakerSchema)
