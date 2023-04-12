@@ -1,6 +1,6 @@
 let PatientSchema = require('../model/patient');
 
-module.exports.newSensor = async (patientid, patientname, patientbirthdate, patientage) => {
+module.exports.newPatient = async (patientid, patientname, patientbirthdate, patientage) => {
     try {
         let patient = new PatientSchema ({ patientID: patientid, patientName: patientname, patientBirthdate: patientbirthdate, patientAge: patientage });
         let response = await patient.save();

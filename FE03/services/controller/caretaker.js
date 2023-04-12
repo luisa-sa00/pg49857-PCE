@@ -1,6 +1,6 @@
 let CareTakerSchema = require('../model/caretaker');
 
-module.exports.newCareTaker = async (id, name) => {
+module.exports.newCaretaker = async (id, name) => {
     try {
         let care_taker = new CareTakerSchema ({ id: id, name: name });
         let response = await care_taker.save();

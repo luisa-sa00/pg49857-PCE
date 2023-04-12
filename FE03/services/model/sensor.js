@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var SensorSchema = new Schema({
     sensorid: {type: Number, unique: true},
-    sensornum: {type: Number, unique: true},
+    sensornum: {type: Number},
     type_of_sensor: {type: String}
 })
 
