@@ -8,10 +8,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { responsiveFontSizes } from '@mui/material';
+// import { responsiveFontSizes } from '@mui/material';
 
 export default function ListSensors () {
-    const baseURL = "http://localhost:3000/sensors/list";
+    const baseURL = "http://localhost:3001/sensors/list";
 
     // definir objeto a trabalhar (sensorList) e modo interno de o alterar (setSensorList)
     const [sensorList, setSensorList] = useState([]);
@@ -23,7 +23,7 @@ export default function ListSensors () {
 
     return (
         <div>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} style={{ width: 800 }}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>

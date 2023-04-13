@@ -9,7 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path: "/sensor",
+    path: "/sensors",
     element: <IndexSensors />
   }
 ])
