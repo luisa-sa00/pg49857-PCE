@@ -6,7 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index.js');
 var cors = require('cors');
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');'0'
 const uri = "mongodb://localhost:9000/registosCovid";
 
 var files = require('./controller/importLocalFiles.js');

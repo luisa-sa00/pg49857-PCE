@@ -1,34 +1,79 @@
 const fs = require('fs');
 const { newPaciente } = require('./paciente');
-const { newCodigoPostal} = require('./cod_postal');
-const { newRegisto } = require('./registo');
+// const { newCodigoPostal} = require('./cod_postal');
+// const { newRegisto } = require('./registo');
 
 
 module.exports.readFile = async () => {
-    const filePath = "C:\\Users\\maria\\Desktop\\MIEBIOM\\4º Ano\\2º Semestre\\O Processo Clínico Eletrónico\\pce\\registosCovid\\localfiles\\";
-    const filenames = ['doentes.csv'];
+    const filePath = "C:\\Users\\ASUS\\Documents\\Mestrado\\1º Ano\\2º Semestre\\PCE - Processo Clínico Eletrónico\\Aplicações\\pg49857-PCE\\registosCovid\\localfiles\\";
+    const filenames = ['doentes.csv', 'registos_covid19.csv'];
 
-    for(let name of filenames) {
-        const fileRead = fs.readFileSync(filePath + name);
-        let lines = fileRead.toString().split('\n');
-        for(let line of lines) {
-            let lineParams = line.split(';');
-            if(lineParams[lineParams.length-1].includes('\r'))
-                lineParams[lineParams.length-1] = lineParams[lineParams.length-1].slice(0,-1);
+    let doentes = [];
+    let registos = [];
 
-            let [id_paciente, nome, data_nascimento, genero, cod_postal] = [lineParams[3], lineParams[4], lineParams[1], lineParams[2], lineParams[0]];
-            newPaciente(id_paciente, nome, data_nascimento, genero, cod_postal);
+    function normalizaTemp(temp){
+        return parseFloat(temp.split(" ")[0]);
+    }
 
-            //let [cod_postal, localidade] = [lineParams[0], lineParams[1]];
-            //console.log(cod_postal, localidade)
-            //newCodigoPostal(cod_postal, localidade);
+    function normalizaVazios(valor){
+        return (valor === '' || !valor) ? 0 : valor;
+    }
 
-            //let [num_seq, data_registo, temperatura, falta_ar, dor_cabeca, dor_muscular, tosse, diarreia, olfato_paladar, avaliacao_global] = [lineParams[0], lineParams[1], parseFloat(lineParams[2]), lineParams[3], lineParams[4], lineParams[5], lineParams[6], lineParams[7], lineParams[8], lineParams[9]];
-            //console.log(num_seq, data_registo, temperatura, falta_ar, dor_cabeca, dor_muscular, tosse, diarreia, olfato_paladar, avaliacao_global)
-            /* if(isNaN(temperatura)) {
-                temperatura = ''
-            }
-            newRegisto(num_seq, data_registo, temperatura, falta_ar, dor_cabeca, dor_muscular, tosse, diarreia, olfato_paladar, avaliacao_global)*/
-        }
+    // leitura ficheiro doentes.csv
+    const fileRead = fs.readFileSync(filePath + filenames[0]);
+    let lines = fileRead.toString().split("\n");
+
+    for (let line of lines) {
+        let lineParams = line.split(";");
+        if (lineParams[lineParams.length - 1].includes("\r"))
+            lineParams[lineParams.length - 1] = lineParams[
+            lineParams.length - 1
+            ].slice(0, -1);
+
+        let newDoente = {
+            id_paciente: lineParams[3],
+            nome: lineParams[4],
+            data_nascimento: lineParams[1],
+            genero: lineParams[2],
+            cod_postal: lineParams[0],
+            registos: [],
+        };
+        doentes.push(newDoente);
+    }
+
+    // leitura ficheiro registos_covid19.csv
+    const fileRead2 = fs.readFileSync(filePath + filenames[1]);
+    let lines2 = fileRead2.toString().split("\n");
+
+    for (let line of lines2) {
+        let lineParams = line.split(";");
+        if (lineParams[lineParams.length - 1].includes("\r"))
+            lineParams[lineParams.length - 1] = lineParams[
+            lineParams.length - 1
+            ].slice(0, -1);
+        
+        let newRegisto = {
+            num_seq: normalizaVazios(lineParams[0]),
+            data_registo: normalizaVazios(lineParams[1]),
+            temperatura: normalizaVazios(normalizaTemp(lineParams[2])),
+            falta_ar: normalizaVazios(lineParams[3]),
+            dor_cabeca: normalizaVazios(lineParams[4]),
+            dor_muscular: normalizaVazios(lineParams[5]),
+            tosse: normalizaVazios(lineParams[6]),
+            diarreia: normalizaVazios(lineParams[7]),
+            olfato_paladar: normalizaVazios(lineParams[8]),
+            avaliacao_global: normalizaVazios(lineParams[9]),
+        };
+        registos.push(newRegisto);
+    }
+
+    // merge das listas criadas, para juntar os registos do paciente aos seus restantes dados
+    doentes.map(x => {
+        x.registos = registos.filter(y => y.num_seq == x.id_paciente)
+        return x;
+    })
+
+    for (let doente of doentes){
+        newPaciente(doente.id_paciente, doente.nome, doente.data_nascimento, doente.genero, doente.cod_postal, doente.registos)
     }
 }
